@@ -1,0 +1,21 @@
+
+kspacelib
+Reads ships and parts from an installed copy of Kerbal Space Program.
+
+Once the ships and parts are loaded, there are convenience functions to allow various analyses 
+to be performed on the ships.
+
+This is really new at the moment, and there isn't much in the way of aggregate or convenience functions available yet.
+
+Basic usage:
+
+    import kspace
+    kspace.set_game_path("C:\\games\\KSP_win")
+    kspace.Part.load_all()
+    ships = kspace.Ship.load_all()
+
+    ship = ships[0]
+    print "Ship name:", ship.name, "with", len(ship.stages), "stages."
+    launch_stage = ship.stages[-1]
+    mass_at_launch = launch_stage.mass()
+    print "thrusters at launch:", launch_stage.available_thrusters()
